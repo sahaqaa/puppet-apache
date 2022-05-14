@@ -1,0 +1,10 @@
+<%# This is for generating Virtualhosts in Apache -%>
+
+<VirtualHost *:<%= $port %>>
+    ServerName <%= $subdomain %>.<%= $facts[fqdn] %>
+    ServerAlias <%= $subdomain %>
+<%- if $admin =~ String[1] { -%>
+    ServerAdmin <%= $admin %>
+<%- } -%>
+    DocumentRoot <%= $docroot %>
+</VirtualHost>
